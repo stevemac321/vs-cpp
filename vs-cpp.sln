@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector", "Vector\Vector.vcxproj", "{AD278CA9-9E79-4BFA-826E-853012AA9F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -36,9 +38,20 @@ Global
 		{0B6DF3D9-F3C9-4AE7-8602-AC98168796A8}.Release|x64.Build.0 = Release|x64
 		{0B6DF3D9-F3C9-4AE7-8602-AC98168796A8}.Release|x86.ActiveCfg = Release|Win32
 		{0B6DF3D9-F3C9-4AE7-8602-AC98168796A8}.Release|x86.Build.0 = Release|Win32
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Debug|x64.ActiveCfg = Debug|x64
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Debug|x64.Build.0 = Debug|x64
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Debug|x86.ActiveCfg = Debug|Win32
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Debug|x86.Build.0 = Debug|Win32
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x64.ActiveCfg = Release|x64
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x64.Build.0 = Release|x64
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x86.ActiveCfg = Release|Win32
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD278CA9-9E79-4BFA-826E-853012AA9F13} = {FDE3E06C-CC60-4F08-A1F9-5DA040EA09C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03F3A486-8566-408D-988B-4481C68C4436}

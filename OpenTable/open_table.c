@@ -200,56 +200,7 @@ size_t strhash(const char* str) {
     }
     return hash;
 }
-#if 0
-size_t strhash(const char* value) {
-    assert(value);
-    size_t hash = 5381;
-    int c;
 
-    while ((c = *value++)) {
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-    }
-
-    return hash;
-}
-
-
-
-#define MURMUR_SEED 0xdeadbeef
-// murmur
-size_t strhash(const char* key) {
-    size_t len = strlen(key);
-    size_t hash = MURMUR_SEED;
-    const size_t* data = (const size_t*)key;
-    const size_t* end = data + (len / sizeof(size_t));
-    const unsigned char* tail = (const unsigned char*)(data + (len & ~(sizeof(size_t) - 1)));
-
-    while (data != end) {
-        size_t k = *data++;
-        k *= 0xcc9e2d51;
-        k = (k << 15) | (k >> 17);
-        k *= 0x1b873593;
-        hash ^= k;
-        hash = (hash << 13) | (hash >> 19);
-        hash = hash * 5 + 0xe6546b64;
-    }
-
-    while (*tail != '\0') {
-        hash ^= (size_t)(*tail++);
-        hash = (hash << 13) | (hash >> 19);
-        hash = hash * 5 + 0xe6546b64;
-    }
-
-    hash ^= len;
-    hash ^= hash >> 16;
-    hash *= 0x85ebca6b;
-    hash ^= hash >> 13;
-    hash *= 0xc2b2ae35;
-    hash ^= hash >> 16;
-
-    return hash;
-}
-#endif
 size_t inthash(const int* value)
 {
    assert(value);
@@ -282,7 +233,8 @@ void table_str_alloc(tableptr table, size_t idx, genptr value)
 {
     assert(table && value);
     const char * s = (const char*)value;
-    table->table[idx] = Heap_Malloc(strlen(s));
+    size_t len = strlen(s);
+    table->table[idx] = Heap_Malloc(len);
 	strcpy(table->table[idx], s);
 }
 

@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="algo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="functor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="heap.h">
@@ -32,16 +26,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="algo.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="functor.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="heap.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="open_table.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

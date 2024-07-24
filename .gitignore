@@ -1,2 +1,45 @@
 .vs/
 *.vsidx
+# Ignore binary files
+*.exe
+*.dll
+*.so
+*.o
+*.a
+
+# Ignore build directories
+/build/
+/bin/
+/obj/
+
+# Ignore Visual Studio specific files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.vcxproj.user
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore other common unwanted files
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+ipch/
+*.ipch
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.vcxproj.*
+*.psess
+*.vspx
+*.vsp
+*.vshost.exe
+*.vshost.exe.manifest
+_Dependencies
+

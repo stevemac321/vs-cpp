@@ -7,9 +7,12 @@ This repository contains various C++ projects, including implementations of data
 ## Projects
 
 - **RBTree**: Red-Black Tree implementation.
-- **Sorts**: Various sorting algorithms.
 - **OpenTable**: Open addressing hash table implementation.
-- **Geeks**: Solutions to GeeksForGeeks problems.
+- **vector**: C++14 conforming std::vector-like template.
+
+### Static Array Allocator
+
+The static array allocator used in this repository is particularly suited for mission-critical embedded systems. It provides dynamic memory allocation semantics with the safety and predictability of a statically allocated array. This approach minimizes the risks of fragmentation, memory leaks, and heap exhaustion, which are critical concerns in embedded environments where reliability is paramount.
 
 ## Getting Started
 
@@ -29,11 +32,12 @@ This repository contains various C++ projects, including implementations of data
 2. Build using your preferred method (e.g., using a CMake file, or directly with a compiler).
 
 ### Running the Projects
-
-- Each project contains its own main file. Navigate to the project directory and compile the main file.
+-Load in Visual Studio, open vs-cpp.sln or any of the project files
+OR
+- Each project contains its own makefile. Navigate to the project directory and run make.
     ```sh
     cd RBTree
-    g++ main.cpp -o RBTree
+    make
     ./RBTree
     ```
 

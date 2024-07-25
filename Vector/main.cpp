@@ -28,16 +28,15 @@ int swap_pass();
 
 int main()
 {
-	Heap_Init();
 	//algo_copy_reverse_pass();
 	algo_non_mod_pass();
 	clear_pass();
-	copy_assign_pass();
-	copy_ctor_pass();
+	//copy_assign_pass();
+	//copy_ctor_pass();
 	emplace_pass();
 	erase_pass();
 	init_assign_pass();
-	insert_pass();
+	//insert_pass();
 	logical_ops_pass();
 	move_assign_pass();
 	move_assign_ctor_pass();

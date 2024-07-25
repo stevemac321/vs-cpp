@@ -64,6 +64,7 @@ int copy_assign_pass()
 		vector<int> compare{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 		VERIFY(v == compare);
 	}
+
 	{
 		std::initializer_list<int> int25 = {
 		    0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12,
@@ -73,6 +74,7 @@ int copy_assign_pass()
 		vector<int> y = x;
 		VERIFY(icd.execute(x, y));
 	}
+
 	Test<std::string, copy, diff> scd;
 
 	{

@@ -49,9 +49,9 @@ typedef struct heap_stats {
   long blocksUsed;
   long blocksUnused;
 } heap_stats_t;
-//#ifdef __cplusplus
-//extern "C" {
- //#endif
+#ifdef __cplusplus
+extern "C" {
+#endif
 //******** Heap_Init *************** 
 // Initialize the Heap
 // input: none
@@ -115,7 +115,7 @@ long Heap_Test(void);
 // input: none
 // output: a heap_stats_t that describes the current usage of the heap
 heap_stats_t Heap_Stats(void);
-//#ifdef __cplusplus
-//}
-//#endif // if cpp
+#ifdef __cplusplus
+}
+#endif // if cpp
 #endif //#ifndef HEAP_H

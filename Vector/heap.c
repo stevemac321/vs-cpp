@@ -449,12 +449,19 @@ static long splitAndMarkBlockUsed(long* upperBlockStart, long desiredRoom){
 // output: none
 // notes: will merge the given block with the block below it.
 //  WARNING: Does not check that the block below actually exists.
+#include <stdint.h>
 static void mergeBlockWithBelow(long* upperBlockStart){
   long* upperBlockEnd = blockTrailer(upperBlockStart);
   long* lowerBlockStart = upperBlockEnd + 1;
   long* lowerBlockEnd = blockTrailer(lowerBlockStart);
 
-  long room = lowerBlockEnd - upperBlockStart - 1;
+  /* @TODO  @REVIEW at this time I'd rather turn off the warning rather risk a breaking change, I didn't write this code,
+  * and it has been working great.  To "fix" it would be invasive changing all the types. [github/stevemac321]
+  */
+#pragma warning(push)
+#pragma warning(disable:4244)
+  long room =lowerBlockEnd - upperBlockStart - 1;
+#pragma warning(pop)
   *upperBlockStart = -room;
   *lowerBlockEnd = -room;
   return;

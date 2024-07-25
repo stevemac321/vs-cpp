@@ -19,20 +19,40 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="binarytree.h" />
-    <ClInclude Include="bintree_test.h" />
-    <ClInclude Include="common.h" />
-    <ClInclude Include="heap.h" />
+    <ClCompile Include="algo_non_mod.pass.cpp" />
+    <ClCompile Include="clear.pass.cpp" />
+    <ClCompile Include="copy_assign.pass.cpp" />
+    <ClCompile Include="copy_ctor.pass.cpp" />
+    <ClCompile Include="emplace.pass.cpp" />
+    <ClCompile Include="erase.pass.cpp" />
+    <ClCompile Include="heap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="init_assign.pass.cpp" />
+    <ClCompile Include="insert.pass.cpp" />
+    <ClCompile Include="logical_ops.pass.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="move_assign.pass.cpp" />
+    <ClCompile Include="move_ctor.pass.cpp" />
+    <ClCompile Include="swap.pass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="heap.c" />
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="allocator.hpp" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="heap.h" />
+    <ClInclude Include="iterator.hpp" />
+    <ClInclude Include="remove_erase.h" />
+    <ClInclude Include="vector.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="algo_copy_reverse.pass.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{fcb473ba-af90-4d81-a2d9-d4ba9b4276a2}</ProjectGuid>
-    <RootNamespace>RBTree</RootNamespace>
+    <ProjectGuid>{ad278ca9-9e79-4bfa-826e-853012aa9f13}</ProjectGuid>
+    <RootNamespace>Vector</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -114,7 +134,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalOptions>-DHEAP_SIZE_BYTES=4096 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>-DHEAP_SIZE_BYTES=4096  -D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

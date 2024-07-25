@@ -9,7 +9,7 @@ BIN_DIR = bin
 INC_DIR = include
 
 # Target executable
-TARGET = $(BIN_DIR)/OpenTable
+TARGET = $(BIN_DIR)/RBTree
 
 # Source files and object files
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)

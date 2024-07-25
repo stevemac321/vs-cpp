@@ -53,7 +53,7 @@ tableptr open_table_init(const size_t tbsize, const size_t datasize,
 	newtable->table = Heap_Malloc(tbsize * CHAR_BIT);
 	if (newtable->table == NULL) {
 		fprintf(stderr, "out of memory error\n");
-		free(newtable);
+		Heap_Free(newtable);
 		exit(EXIT_FAILURE);
 	}
 

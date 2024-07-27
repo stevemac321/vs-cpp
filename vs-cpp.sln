@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector", "Vector\Vector.vcxproj", "{AD278CA9-9E79-4BFA-826E-853012AA9F13}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graph", "Graph\Graph.vcxproj", "{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -46,6 +48,14 @@ Global
 		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x64.Build.0 = Release|x64
 		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x86.ActiveCfg = Release|Win32
 		{AD278CA9-9E79-4BFA-826E-853012AA9F13}.Release|x86.Build.0 = Release|Win32
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Debug|x64.ActiveCfg = Debug|x64
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Debug|x64.Build.0 = Debug|x64
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Debug|x86.ActiveCfg = Debug|Win32
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Debug|x86.Build.0 = Debug|Win32
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x64.ActiveCfg = Release|x64
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x64.Build.0 = Release|x64
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x86.ActiveCfg = Release|Win32
+		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

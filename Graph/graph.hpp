@@ -6,6 +6,7 @@
 #include <utility>
 #include <algorithm>
 #include <tuple>
+#include <iomanip>
 
 // Custom comparison functor
 struct PairCompare {
@@ -23,28 +24,39 @@ class UndirectedGraph {
     std::vector<std::vector<size_t>> adj;
 
 public:
-    UndirectedGraph(const size_t& v) : V(v), adj(v + 1) {} // +1 to account for 1-based index
-
-    UndirectedGraph(const size_t& v, const std::vector<std::pair<size_t, size_t>>& in) : V(v), adj(v + 1) {
-        for (const auto& e : in) {
-            AddEdge(e.first, e.second);
+    UndirectedGraph(size_t v, const std::vector<std::vector<std::tuple<size_t, size_t, size_t>>>& in) : V(v), adj(v + 1) {
+        // Initialize each adjacency list with the desired size
+        for (size_t i = 0; i <= V; i++) {  // Fix loop bound to include V
+            adj[i].resize(i + 1);
+            std::fill(adj[i].begin(), adj[i].end(), 0);
+        }
+        for (size_t i = 0; i < V; i++) {
+            for (size_t j = 0; j < in[i].size(); j++) {  // Use in[i].size() for correct bounds
+                AddEdge(std::get<0>(in[i][j]), std::get<1>(in[i][j]), std::get<2>(in[i][j]));
+            }
         }
     }
 
     size_t getV() const { return V; }
     size_t getE() const { return E; }
 
-    void AddEdge(size_t v, size_t w) {
-        adj[v].push_back(w);
-        adj[w].push_back(v); // Assuming an undirected graph
-        E++;
+    void AddEdge(const size_t& v, const size_t& pos, const size_t& weight) {
+        if (v > 0 && v <= V && pos > 0 && pos <= v) {  // Ensure indices are within bounds
+            adj[v - 1][pos - 1] = weight;
+            E++;
+        }
     }
 
     void PrintGraph() const {
-        for (size_t v = 1; v <= V; ++v) {
-            std::cout << "Adjacency list of vertex " << v << ": ";
-            for (auto x : adj[v]) {
-                std::cout << x << " ";
+        std::cout << "Number of vertices: " << V << std::endl;
+        for (size_t i = 0; i < V; ++i) {
+            for (size_t j = 0; j < V; ++j) {
+                if (j <= i) {
+                    std::cout << std::setw(3) << adj[i][j] << " "; // Set width for alignment
+                }
+                else {
+                    std::cout << std::setw(3) << adj[j][i] << " "; // Set width for alignment
+                }
             }
             std::cout << std::endl;
         }
@@ -52,7 +64,7 @@ public:
 
     size_t degree(const size_t& v) const {
         std::map<std::pair<size_t, size_t>, bool, PairCompare> m;
-        for (size_t i : adj[v]) {
+        for (size_t i : adj[v - 1]) {  // Access adj[v-1] to account for 1-based indexing
             std::pair<size_t, size_t> p = std::make_pair(v, i);
             m.insert(std::make_pair(p, true));
         }
@@ -80,4 +92,3 @@ public:
         return static_cast<double>(total_degrees) / (vertex_count - 1);
     }
 };
-

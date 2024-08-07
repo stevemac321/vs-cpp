@@ -46,7 +46,7 @@ public:
 
 template <typename DataType>
 struct BNode {
-    DataType data;
+    DataType data = DataType();
     BNode<DataType>* right = nullptr;
     BNode<DataType>* left = nullptr;
     BNode<DataType>* parent = nullptr;

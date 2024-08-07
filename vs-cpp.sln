@@ -16,6 +16,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vector", "Vector\Vector.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graph", "Graph\Graph.vcxproj", "{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "Stack\Stack.vcxproj", "{66A1109B-DD09-4056-AA26-91ABCE90CE81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -56,6 +58,14 @@ Global
 		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x64.Build.0 = Release|x64
 		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x86.ActiveCfg = Release|Win32
 		{479AAEF3-2585-44A1-9DCC-FA4BA0FC9050}.Release|x86.Build.0 = Release|Win32
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Debug|x64.ActiveCfg = Debug|x64
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Debug|x64.Build.0 = Debug|x64
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Debug|x86.ActiveCfg = Debug|Win32
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Debug|x86.Build.0 = Debug|Win32
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Release|x64.ActiveCfg = Release|x64
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Release|x64.Build.0 = Release|x64
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Release|x86.ActiveCfg = Release|Win32
+		{66A1109B-DD09-4056-AA26-91ABCE90CE81}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

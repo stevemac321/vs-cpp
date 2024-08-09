@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <initializer_list>
 template <typename T, int N = 100>
 class stack {
     T stk[N];
@@ -8,6 +8,27 @@ class stack {
     static const int size = N;  // Made size a static const
 
 public:
+    stack() = default;
+    stack(const std::initializer_list<T>& il) {
+        for (const auto& i : il) {
+            push(i);
+        }
+    }
+
+    stack& operator=(std::initializer_list<T> il) {
+        // Clear the current stack
+        while (!empty()) {
+            pop();
+        }
+
+        // Push all elements from the initializer list
+        for (const auto& item : il) {
+            push(item);
+        }
+
+        return *this;
+    }
+
     bool empty() const { return top == -1; }
     bool full() const { return top == size - 1; }
 

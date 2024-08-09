@@ -12,23 +12,12 @@ template <typename T, size_t N> constexpr size_t array_size(T(&)[N])
     return N;
 }
 
-const size_t NONE = 0;
-const size_t A = 1;
-const size_t E = 2;
-const size_t I = 3;
-const size_t O = 4;
-const size_t U = 5;
-const size_t DONE = 6;
+enum State{NONE, A, E, I, O, U, DONE};
 
 bool inorder_words(const char words[], const size_t len)
-{   
-    stack<char> stk;
-    
+{  
     std::cout << "The word is: " << words << "\n";
-    char a[] = { 'u', 'o', 'i', 'e', 'a' };
-    for (auto& c : a) {
-        stk.push(c);
-    }
+    stack<char> stk({ 'u', 'o', 'i', 'e', 'a' });
    
     size_t state = NONE;
     auto expected = stk.pop();

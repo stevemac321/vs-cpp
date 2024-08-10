@@ -21,12 +21,14 @@ void fbounce();
 void test_inorder_vowels();
 void test_bounce_filter();
 void fbounce();
+void parity();
 int main()
 {
     enable_virtual_terminal_processing();
     test_inorder_vowels();
     test_bounce_filter();
     fbounce();
+    parity();
 }
 bool inorder_words(const char words[], const size_t len)
 {
@@ -179,7 +181,7 @@ void test_bounce_filter()
  */
 void fbounce() {
     int x;
-    puts("\n");
+    puts("\n Enter bounce filter bits: ");
     /* state a */
 a:  putchar('0');
     x = getchar();
@@ -204,6 +206,37 @@ d:  putchar('1');
     if (x == '0') goto a; /* transition to state a */
     if (x == '1') goto c; /* transition to state c */
     goto finis;
+finis:;
+}
+/*
+   start state is NOCHANGE.
+   odd parity is non-accepting.
+   even is accepting.
+   zeros do not affect state.
+ */
+
+void parity() {
+    puts("\n Enter parity bits: ");
+    int x;
+
+NOCHANGE:
+    x = getchar();
+    if (x == '0') goto NOCHANGE;
+    if (x == '1') goto ODD;
+    goto finis;
+    /* state b */
+ODD:  puts("ODD");
+    x = getchar();
+    if (x == '0') goto NOCHANGE;
+    if (x == '1') goto EVEN;
+    goto finis;
+    /* state c */
+EVEN:  puts("EVEN");
+    x = getchar();
+    if (x == '0') goto NOCHANGE;
+    if (x == '1') goto ODD;
+    goto finis;
+    /* state d */
 finis:;
 }
 

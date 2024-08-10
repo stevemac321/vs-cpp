@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <utility>
+#include <cstdio>
 #include "..\Stack\stack.hpp"
 #include "..\RBTree\common.h"
 
@@ -16,14 +17,16 @@ enum FilterState { FA, FB, FC, FD };
 
 bool inorder_words(const char words[], const size_t len);
 void bounce_filter(int arr[], const size_t len);
+void fbounce();
 void test_inorder_vowels();
 void test_bounce_filter();
+void fbounce();
 int main()
 {
     enable_virtual_terminal_processing();
-   // test_inorder_vowels();
+    test_inorder_vowels();
     test_bounce_filter();
-
+    fbounce();
 }
 bool inorder_words(const char words[], const size_t len)
 {
@@ -90,54 +93,7 @@ void test_inorder_vowels()
 
 }
 /*
-* Eliminate "noise" when a single 1 is surrounded by 0's.
-
-States:
-a) We have just seen a sequence of 0’s, at least two in a row.
-b) We have just seen a sequence of 0’s followed by a single 1.
-c) We have just seen a sequence of at least two 1’s.
-d) We have just seen a sequence of 1’s followed by a single 0.
-The adjacency list for this automaton can be represented as follows:
-
-Let's do it this way.  So indicate what the work of the state is, not just the rules of transition.
-Transition Rules:
-- **State a**:
-  - `(a, a)` on input 0 (stay in state a)
-  - `(a, b)` on input 1 (transition to state b)
-
-- **State b**:
-  - `(b, a)` on input 0 (transition to state a)
-  - `(b, c)` on input 1 (transition to state c)
-
-- **State c**:
-  - `(c, c)` on input 1 (stay in state c)
-  - `(c, d)` on input 0 (transition to state d)
-
-- **State d**:
-  - `(d, a)` on input 0 (transition to state a)
-  - `(d, c)` on input 1 (transition to state c)
-
-  Input:  0  1  0  1  1  0  1
-State:  a  a  b  a  b  c  d  c
-Output: 0  0  0  0  0  1  1  1
-
-To address the issue with your bounce filter implementation, let's focus on the logic for each state and ensure that the output is generated correctly based on the state transitions. Here's a breakdown of what each state should do, along with some suggestions for your code:
-
-### State Responsibilities and Output Logic
-
-State Transitions and Output:
-State FA:
-On input 0, print 0 and stay in FA.
-On input 1, transition to FB without printing anything yet (defer output decision to FB).
-State FB:
-On input 0, print 0 and transition back to FA.
-On input 1, print 0 (since the single 1 is considered noise) and transition to FC.
-State FC:
-On input 0, defer output decision and transition to FD.
-On input 1, print 1 and stay in FC.
-State FD:
-On input 0, print 1 (since the single 0 is considered noise) and transition to FA.
-On input 1, transition to FC without printing anything yet.
+*Upon
 
 */
 void bounce_filter(int arr[], const size_t len) {
@@ -214,6 +170,41 @@ void test_bounce_filter()
     }
     std::cout << "\n";
     bounce_filter(a, array_size(a));
+}
+
+/*
+   state a and b are rejecting states(print 0),
+    c and d accepting states( print 1.
+    From Foundations
+ */
+void fbounce() {
+    int x;
+    puts("\n");
+    /* state a */
+a:  putchar('0');
+    x = getchar();
+    if (x == '0') goto a; /* transition to state a */
+    if (x == '1') goto b; /* transition to state b */
+    goto finis;
+    /* state b */
+b:  putchar('0');
+    x = getchar();
+    if (x == '0') goto a; /* transition to state a */
+    if (x == '1') goto c; /* transition to state c */
+    goto finis;
+    /* state c */
+c:  putchar('1');
+    x = getchar();
+    if (x == '0') goto d; /* transition to state d */
+    if (x == '1') goto c; /* transition to state c */
+    goto finis;
+    /* state d */
+d:  putchar('1');
+    x = getchar();
+    if (x == '0') goto a; /* transition to state a */
+    if (x == '1') goto c; /* transition to state c */
+    goto finis;
+finis:;
 }
 
 /*

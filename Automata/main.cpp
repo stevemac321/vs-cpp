@@ -22,6 +22,8 @@ void test_inorder_vowels();
 void test_bounce_filter();
 void fbounce();
 void parity();
+void three_conseq_ones();
+void sorted_letters();
 int main()
 {
     enable_virtual_terminal_processing();
@@ -29,6 +31,8 @@ int main()
     test_bounce_filter();
     fbounce();
     parity();
+    three_conseq_ones();
+    sorted_letters();
 }
 bool inorder_words(const char words[], const size_t len)
 {
@@ -224,42 +228,128 @@ NOCHANGE:
     if (x == '0') goto NOCHANGE;
     if (x == '1') goto ODD;
     goto finis;
-    /* state b */
+  
 ODD:  puts("ODD");
     x = getchar();
     if (x == '0') goto NOCHANGE;
     if (x == '1') goto EVEN;
     goto finis;
-    /* state c */
+ 
 EVEN:  puts("EVEN");
     x = getchar();
     if (x == '0') goto NOCHANGE;
     if (x == '1') goto ODD;
     goto finis;
-    /* state d */
+   
 finis:;
 }
 
 /*
-enum State{A,E,I,O,U}
-fn inorder_vowels(_words: &[char]) ->(i32,i32) {
+* New exercise with code to follow, it looks correct:
+b) Check that there are no more than two consecutive 1’s. That is, accept unless
+111 is a substring of the input string read so far.
+What is the intuitive meaning of each of your states?
+10.2.2: Indicate the sequence of states and the outputs when your automata from
+Exercise 10.2.1 are given the input 101001101110.
 
-}
+Input: 101001101110
+Output:
+ZERO
+ONE
+ZERO
+ONE
+ZERO
+ZERO
+ONE
+TWO
+ZERO
+ONE
+TWO
+REJECT
 
+*/
+void three_conseq_ones()
+{
+    puts("\n Enter reject 3 conseq bits: ");
+    int x;
 
-fn main() {
-    let words: [char; 68] = ['a', 'b', 's', 't', 'e', 'm', 'i', 'o', 'u', 's', ' ', 'f', 'a', 'c', 'e', 't', 'i',
-    'o', 'u', 's', ' ', 'a', 'e', 'r', 'i', 'f', 'o', 'r', 'm', ' ', 'a', 'r', 's', 'e', 'n', 'i', 'o', 'u', 's',
-    ' ', 'a', 'n', 'e', 'm', 'i', 'o', 'u', 's', ' ', 'c', 'a', 'e', 's', 'i', 'u', 'm', ' ', 'b', 'a', 'c', 'o',
-     'n', ' ', 'q', 'u', 'e', 'u', 'e'];
-
-    let _total = inorder_vowels(&words);
-
+ZERO:
+    x = getchar();
+    puts("ZERO");
+    if (x == '0') goto ZERO;
+    if (x == '1') goto ONE;
+    goto finis;
+    
+ONE:  puts("ONE");
+    x = getchar();
+    if (x == '0') goto ZERO;
+    if (x == '1') goto TWO;
+    goto finis;
+   
+TWO:  puts("TWO");
+    x = getchar();
+    if (x == '0') goto ZERO;
+    if (x == '1') goto REJECT;
+    goto finis;
+REJECT:
+    puts("REJECT");
+finis:;
 }
 /*
-Five words containing all 5 vowels in order: "abstemious", "facetious", "aeriform", "arsenious", and "anemious"
-Two false cases: "caesium" (vowels not in order) and "bacon" (missing vowels)
-One additional word: "queue" (repeated vowels, not all 5)
+* 
+10.2.3*: Design an automaton that reads a word (character string) and tells
+whether the letters of the word are in sorted order. For example, adept and chilly
+have their letters in sorted order; baby does not, because an a follows the first b.
+The word must be terminated by a blank, so that the automaton will know when
+it has read all the characters. (Unlike Example 10.1, here we must not accept until
+we have seen all the characters, that is, until we reach the blank at the end of the
+word.) How many states do you need? What are their intuitive meanings? How
+many transitions are there out of each state? How many accepting states are there?
+
+Inputs: 
+adept == ACCEPT
+chilly == ACCEPT
+baby == ACCEPT
+
 */
+bool is_endword(int c) {
+    if (c == EOF || c == '\n' || c == '\0' || c == ' ' || c == '\t')
+        return true;
+    else
+        return false;
+}
+void sorted_letters()
+{
+    puts("\n Enter words : ");
+  
+    int last = getchar();
+    int cur;
+
+OK:
+    cur = getchar();
+    if (is_endword(cur)) {
+        goto ACCEPT;
+    }
+    if ( cur >= last) {
+        last = cur;
+         goto OK;
+    }
+    else {
+        goto REJECT;
+    }
+    goto finis;
+
+REJECT:
+    puts("REJECT");
+    goto finis;
+
+ACCEPT:
+    puts("ACCEPT");
+    goto finis;
+
+finis:;
+    
+}
+
 
 

@@ -1,3 +1,11 @@
+/*
+* Well, I do know the basics, but have not gotten to more complex tree-like structures,
+* just adjacency lists and matrices.  Do I know enough to take on automata, or do I need
+* more background with directed graphs (I know they edges are "one way") using more
+* complex data structures?  Given my goal to think more like a state machine, so I know
+* enough about graphs?  This code should give you an idea where I am at:
+*/
+
 #pragma once
 #include <iostream>
 #include <string>

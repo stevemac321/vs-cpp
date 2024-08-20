@@ -61,8 +61,7 @@ public:
 		if (head != nullptr) {
 			head->prev = nullptr;
 		}
-		else {
-			// If the list is now empty, set tail to nullptr as well
+		else {// If the list is now empty, set tail to nullptr as well
 			tail = nullptr;
 		}
 		delete del;
@@ -79,8 +78,7 @@ public:
 		if (tail != nullptr) {
 			tail->next = nullptr;
 		}
-		else {
-			// If the list is now empty, set head to nullptr as well
+		else {// If the list is now empty, set head to nullptr as well
 			head = nullptr;
 		}
 		delete del;

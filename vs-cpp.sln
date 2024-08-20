@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "Stack\Stack.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Automata", "Automata\Automata.vcxproj", "{F254D701-0C40-4CFB-97C0-4D9662761158}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "List", "List\List.vcxproj", "{86C03EC0-1328-4AFE-B90D-568B720838BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -76,12 +78,21 @@ Global
 		{F254D701-0C40-4CFB-97C0-4D9662761158}.Release|x64.Build.0 = Release|x64
 		{F254D701-0C40-4CFB-97C0-4D9662761158}.Release|x86.ActiveCfg = Release|Win32
 		{F254D701-0C40-4CFB-97C0-4D9662761158}.Release|x86.Build.0 = Release|Win32
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Debug|x64.ActiveCfg = Debug|x64
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Debug|x64.Build.0 = Debug|x64
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Debug|x86.ActiveCfg = Debug|Win32
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Debug|x86.Build.0 = Debug|Win32
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Release|x64.ActiveCfg = Release|x64
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Release|x64.Build.0 = Release|x64
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Release|x86.ActiveCfg = Release|Win32
+		{86C03EC0-1328-4AFE-B90D-568B720838BA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AD278CA9-9E79-4BFA-826E-853012AA9F13} = {FDE3E06C-CC60-4F08-A1F9-5DA040EA09C2}
+		{86C03EC0-1328-4AFE-B90D-568B720838BA} = {FDE3E06C-CC60-4F08-A1F9-5DA040EA09C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03F3A486-8566-408D-988B-4481C68C4436}

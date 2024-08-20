@@ -244,6 +244,7 @@ EVEN:  puts("EVEN");
 finis:;
 }
 
+
 /*
 * New exercise with code to follow, it looks correct:
 b) Check that there are no more than two consecutive 1’s. That is, accept unless
@@ -322,6 +323,9 @@ void sorted_letters()
 {
     puts("\n Enter words : ");
   
+
+  // START: this is just a comment, the compiler complains that it is an unreferenced label because
+  // no other part of the program does a "goto START".
     int last = getchar();
     int cur;
 

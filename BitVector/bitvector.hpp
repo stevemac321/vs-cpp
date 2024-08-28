@@ -26,7 +26,7 @@ public:
     bitvector() {}
     bitvector(T v) :vec(v) { len = sizeof(T) * 8; }
 
-    T getbit(size_t pos)
+    T getbit(size_t pos) const
     {
         return (vec >> pos) & 1;
     }
@@ -39,7 +39,7 @@ public:
         vec &= ~(T(1) << pos); // Clear the bit at 'pos' to 0
     }
     void flipbit(size_t pos) { vec ^= (1 << pos);  }
-    size_t bitcount() 
+    size_t bitcount() const 
     {
         T x = vec;
         size_t count = 0;
@@ -49,14 +49,14 @@ public:
         }
         return count;
     }
-    void print_bitvector()
+    void print_bitvector() const
     {
         std::cout << std::bitset<sizeof(T) * 8>(vec) << "\n";
     }
 };
 
 template<UnsignedBitwiseOperable T>
-T addbits(T a, T b)
+T addbits(const T a, const T b)
 {
     T sum = T();
     size_t carry = 0;

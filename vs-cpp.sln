@@ -24,6 +24,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "List", "List\List.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BitVector", "BitVector\BitVector.vcxproj", "{F4A8478F-88B0-4F37-8BE0-560C2E324DD9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Matrix", "Matrix\Matrix.vcxproj", "{D83630D6-4A86-4F49-8089-73EE5E741417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -96,6 +98,14 @@ Global
 		{F4A8478F-88B0-4F37-8BE0-560C2E324DD9}.Release|x64.Build.0 = Release|x64
 		{F4A8478F-88B0-4F37-8BE0-560C2E324DD9}.Release|x86.ActiveCfg = Release|Win32
 		{F4A8478F-88B0-4F37-8BE0-560C2E324DD9}.Release|x86.Build.0 = Release|Win32
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Debug|x64.ActiveCfg = Debug|x64
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Debug|x64.Build.0 = Debug|x64
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Debug|x86.ActiveCfg = Debug|Win32
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Debug|x86.Build.0 = Debug|Win32
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Release|x64.ActiveCfg = Release|x64
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Release|x64.Build.0 = Release|x64
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Release|x86.ActiveCfg = Release|Win32
+		{D83630D6-4A86-4F49-8089-73EE5E741417}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
